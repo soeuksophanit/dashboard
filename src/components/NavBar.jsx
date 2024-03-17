@@ -12,7 +12,7 @@ const myProfile = {
 
 export default function NavBar() {
   return (
-    <nav className="flex justify-between items-center">
+    <nav className="flex justify-between items-center my-6">
       <BigTitle className={" text-[32px]"}>Portfolio</BigTitle>
       <main className="flex gap-2 items-center">
         <img src={bell} alt="bell" className="w-[24px] h-24px]" />

@@ -8,7 +8,7 @@ function App() {
   const { categories, users, addNewProject } = useData();
 
   return (
-    <Container>
+    <Container className={" bg-white px-[32px] rounded-[32px]"}>
       <NavBar />
       <ProjectBoard
         categories={categories}

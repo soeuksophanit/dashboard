@@ -1,7 +1,5 @@
 import { types } from "@/data/message";
-import { useData } from "@/hooks/useData";
 import React from "react";
-import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 export function FormInput({ isFormOpen, onClick, addNewProject }) {
@@ -16,6 +14,7 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
     document.getElementById("my_modal_4").close();
     onClick();
   };
+
   return (
     <>
       <dialog id="my_modal_4" className="modal text-[#393939]">
@@ -44,6 +43,7 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
                 )}
               </div>
               <input
+                id="position"
                 {...register("position", { required: true })}
                 type="text"
                 placeholder="Type here"
@@ -125,7 +125,7 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
                 <span className="label-text">Description</span>
                 {errors.description && (
                   <span className="text-red-500 text-sm">
-                    Please Select your description
+                    Please write your description
                   </span>
                 )}
               </div>
