@@ -8,7 +8,7 @@ import Modal from "./Modal";
 import { useState } from "react";
 import { FormInput } from "./FormInput";
 
-export default function ProjectBoard({ categories, users }) {
+export default function ProjectBoard({ categories, users, addNewProject }) {
   const [isOpen, setOpen] = useState(false);
   const [isFormOpen, setFormOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
@@ -90,7 +90,11 @@ export default function ProjectBoard({ categories, users }) {
           </motion.div>
         ))}
       </div>
-      <FormInput isFormOpen={isFormOpen} onClick={() => setFormOpen(false)} />
+      <FormInput
+        addNewProject={addNewProject}
+        isFormOpen={isFormOpen}
+        onClick={() => setFormOpen(false)}
+      />
     </motion.div>
   );
 }

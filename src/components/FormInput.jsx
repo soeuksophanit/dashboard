@@ -4,11 +4,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
-export function FormInput({ isFormOpen, onClick }) {
-  const { addNewProject, users } = useData();
-  useEffect(() => {
-    console.log(users);
-  }, [users]);
+export function FormInput({ isFormOpen, onClick, addNewProject }) {
   const {
     register,
     handleSubmit,
@@ -16,10 +12,9 @@ export function FormInput({ isFormOpen, onClick }) {
   } = useForm();
   isFormOpen && document.getElementById("my_modal_4").showModal();
   const onSubmit = (data) => {
-    console.log("submit", data);
     addNewProject(data);
-
-    console.log(users);
+    document.getElementById("my_modal_4").close();
+    onClick();
   };
   return (
     <>
@@ -93,21 +88,31 @@ export function FormInput({ isFormOpen, onClick }) {
             <label className="form-control">
               <div className="flex justify-between">
                 <div>
-                  <div className="label">
+                  <div className="label flex flex-col items-start">
                     <span className="label-text font-medium">Start Date</span>
+                    {errors.startDate && (
+                      <span className="text-red-500 text-sm">
+                        Date is require
+                      </span>
+                    )}
                   </div>
                   <input
-                    {...register("startDate")}
+                    {...register("startDate", { required: true })}
                     type="date"
                     className="border border-[#393939] rounded-md"
                   />
                 </div>
                 <div>
-                  <div className="label">
+                  <div className="label flex flex-col items-start">
                     <span className="label-text font-medium">End Date</span>
+                    {errors.endDate && (
+                      <span className="text-red-500 text-sm">
+                        Date is require
+                      </span>
+                    )}
                   </div>
                   <input
-                    {...register("endDate")}
+                    {...register("endDate", { required: true })}
                     type="date"
                     className="border border-[#393939] rounded-md"
                   />
@@ -118,11 +123,16 @@ export function FormInput({ isFormOpen, onClick }) {
             <label className="form-control">
               <div className="label">
                 <span className="label-text">Description</span>
+                {errors.description && (
+                  <span className="text-red-500 text-sm">
+                    Please Select your description
+                  </span>
+                )}
               </div>
               <textarea
                 {...register("description", { required: true })}
                 className="textarea textarea-bordered h-24"
-                placeholder="Bio"
+                placeholder="Description"
               ></textarea>
             </label>
 
