@@ -1,5 +1,5 @@
 const getBgColor = (cateName) => {
-  const cate = cateName.toLowerCase();
+  const cate = cateName?.toLowerCase();
   return cate == "finish project"
     ? "bg-[#A587FA] text-white"
     : cate == "upcoming"

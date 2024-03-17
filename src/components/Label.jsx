@@ -1,5 +1,5 @@
 export const getTagName = (tagName) => {
-  const tag = tagName.toLowerCase();
+  const tag = tagName?.toLowerCase();
   return tag === "full time"
     ? "bg-[#FAE1E0] text-red-500 "
     : tag === "part time"
@@ -11,7 +11,7 @@ export const getTagName = (tagName) => {
 
 export default function Label({ className, tagName }) {
   return (
-    <p
+    <span
       className={
         "text-[12px] font-medium inline-block py-1 px-2 rounded-[32px] " +
         getTagName(tagName) +
@@ -19,6 +19,6 @@ export default function Label({ className, tagName }) {
       }
     >
       {tagName}
-    </p>
+    </span>
   );
 }

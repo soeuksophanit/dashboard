@@ -6,9 +6,11 @@ import Button from "./Button";
 import BigTitle from "./BigTitle";
 import Modal from "./Modal";
 import { useState } from "react";
+import { FormInput } from "./FormInput";
 
 export default function ProjectBoard({ categories, users }) {
   const [isOpen, setOpen] = useState(false);
+  const [isFormOpen, setFormOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   return (
     <motion.div
@@ -24,6 +26,7 @@ export default function ProjectBoard({ categories, users }) {
       <div className="title flex justify-between items-center">
         <BigTitle>Projects</BigTitle>
         <Button
+          onClick={() => setFormOpen(true)}
           className={
             " uppercase bg-slate-300 text-[#393939] rounded-md font-semibold"
           }
@@ -65,7 +68,7 @@ export default function ProjectBoard({ categories, users }) {
               ease: [0, 0.71, 0.2, 1.01],
             }}
           >
-            <Card user={user}>
+            <Card key={user.id} user={user}>
               <div className="py-4 border-t flex w-full justify-end">
                 <Button
                   className={" text-white font-semibold rounded-[32px]"}
@@ -78,6 +81,7 @@ export default function ProjectBoard({ categories, users }) {
                 </Button>
               </div>
               <Modal
+                key={user.id}
                 onClick={() => setOpen(false)}
                 isOpen={isOpen}
                 user={currentUser}
@@ -86,6 +90,7 @@ export default function ProjectBoard({ categories, users }) {
           </motion.div>
         ))}
       </div>
+      <FormInput isFormOpen={isFormOpen} onClick={() => setFormOpen(false)} />
     </motion.div>
   );
 }

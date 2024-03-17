@@ -26,4 +26,13 @@ export const users = [
     company: "Wing Bank",
     detail: "I'm working on frontEnd Design using ReactJS with TailwindCSS.",
   },
+  {
+    id: 4,
+    name: "Self Employee",
+    type: "Full Time",
+    startDate: "12-12-2022",
+    endDate: "01-03-2023",
+    company: "Home",
+    detail: "I'm working by own self",
+  },
 ];

@@ -8,3 +8,5 @@ export const messages = [
     like: false,
   },
 ];
+
+export const types = ["Full Time", "Freelance", "Part Time"];
