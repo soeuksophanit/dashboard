@@ -1,7 +1,9 @@
+import pf1 from "@/assets/Images/ppl1.jpg";
+
 export const messages = [
   {
     id: 1,
-    img: "ppl1.jpg",
+    img: pf1,
     name: "David",
     message: "Hey tell me about progress of project? Waiting for yourresponse,",
     date: "21 July",
