@@ -1,23 +1,30 @@
+import { side_bars } from "@/data/list_side_bar";
 import React from "react";
+import { useState } from "react";
 
 export default function SideBar() {
+  const [indexActive, setIndexActive] = useState(0);
+  const classes =
+    "w-6 h-6 cursor-pointer hover:bg-gray-200 box-content p-3 transition-all duration-300 rounded-full ";
   return (
-    <div className="row-[2/3] col-[1/2]">
+    <div className="row-[2/3] col-[1/2] mt-[64px]">
       <aside className="flex flex-col gap-4 items-center">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-6 h-6 cursor-pointer"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-          />
-        </svg>
+        {side_bars.map((sidebar, index) => (
+          <svg
+            onClick={() => setIndexActive(index)}
+            key={sidebar.id}
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className={
+              indexActive == index ? classes + " bg-gray-200" : classes
+            }
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d={sidebar.d} />
+          </svg>
+        ))}
       </aside>
     </div>
   );

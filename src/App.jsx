@@ -13,7 +13,7 @@ function App() {
   return (
     <Container
       className={
-        " bg-white px-[32px] rounded-[32px] grid grid-cols-[auto_1fr] grid-rows-[auto_1fr] gap-[32px]"
+        " bg-white px-[32px] rounded-[32px] grid grid-cols-[auto_1fr] grid-rows-[auto_1fr] gap-[32px] h-[90vh] overflow-hidden"
       }
     >
       <SideBar />

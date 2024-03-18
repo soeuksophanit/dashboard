@@ -15,7 +15,7 @@ export default function Messages({ person }) {
             <img
               src={person.img}
               alt={person.name}
-              className="w-[60px] h-[60px] rounded-full object-cover"
+              className="w-[50px] h-[50px] rounded-full object-cover"
             />
             <article className="flex flex-col">
               <section className="flex items-center justify-between">
@@ -38,7 +38,9 @@ export default function Messages({ person }) {
                 </svg>
               </section>
               <p className="text-slate-500 text-[14px]">{person.message}</p>
-              <p className="self-end text-slate-500">{person.date}</p>
+              <p className="self-end text-slate-500 text-[14px]">
+                {person.date}
+              </p>
             </article>
           </aside>
         </main>

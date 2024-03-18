@@ -56,7 +56,7 @@ export default function ProjectBoard({ categories, users, addNewProject }) {
           </motion.div>
         ))}
       </div>
-      <div className="grid grid-cols-3 gap-[22px] h-[500px] overflow-y-scroll rounded-lg">
+      <div className="grid grid-cols-3 gap-[22px] h-[397px] overflow-y-scroll rounded-lg">
         {users.map((user, index) => (
           <motion.div
             key={user.id}
