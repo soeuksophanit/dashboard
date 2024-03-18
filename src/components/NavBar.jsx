@@ -12,13 +12,15 @@ const myProfile = {
 
 export default function NavBar() {
   return (
-    <nav className="flex justify-between items-center my-6">
-      <BigTitle className={" text-[32px]"}>Portfolio</BigTitle>
-      <main className="flex gap-2 items-center">
-        <img src={bell} alt="bell" className="w-[24px] h-24px]" />
-        <Profile className={" "} client={myProfile} />
-        <SmallTitle className={" font-semibold"}>{myProfile.name}</SmallTitle>
-      </main>
-    </nav>
+    <header className="row-[1/2] col-span-2">
+      <nav className="flex justify-between items-center my-6">
+        <BigTitle className={" text-[32px]"}>Portfolio</BigTitle>
+        <main className="flex gap-4 items-center">
+          <img src={bell} alt="bell" className="w-[24px] h-24px]" />
+          <Profile className={" "} client={myProfile} />
+          <SmallTitle className={" font-semibold"}>{myProfile.name}</SmallTitle>
+        </main>
+      </nav>
+    </header>
   );
 }

@@ -1,8 +1,11 @@
 import { types } from "@/data/message";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useToast } from "@/components/ui/use-toast";
 
 export function FormInput({ isFormOpen, onClick, addNewProject }) {
+  const { toast } = useToast();
+
   const {
     register,
     handleSubmit,
@@ -13,6 +16,10 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
     addNewProject(data);
     document.getElementById("my_modal_4").close();
     onClick();
+    toast({
+      title: "Uh oh! Something went wrong.",
+      description: "There was a problem with your request.",
+    });
   };
 
   return (
