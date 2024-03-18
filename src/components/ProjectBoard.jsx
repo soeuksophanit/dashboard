@@ -7,11 +7,19 @@ import BigTitle from "./BigTitle";
 import Modal from "./Modal";
 import { useState } from "react";
 import { FormInput } from "./FormInput";
+import { useEffect } from "react";
+import { SkeletonCard } from "./Skeleton";
 
 export default function ProjectBoard({ categories, users, addNewProject }) {
   const [isOpen, setOpen] = useState(false);
   const [isFormOpen, setFormOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
+  const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => setLoading(false), 2000);
+  }, []);
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -57,38 +65,41 @@ export default function ProjectBoard({ categories, users, addNewProject }) {
         ))}
       </div>
       <div className="grid grid-cols-3 gap-[22px] h-[397px] overflow-y-scroll rounded-lg">
-        {users.map((user, index) => (
-          <motion.div
-            key={user.id}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 0.8 + index / 100,
-              delay: 0.5,
-              ease: [0, 0.71, 0.2, 1.01],
-            }}
-          >
-            <Card key={user.id} user={user}>
-              <div className="py-4 border-t flex w-full justify-end">
-                <Button
-                  className={" text-white font-semibold rounded-[32px]"}
-                  onClick={() => {
-                    setOpen(true);
-                    setCurrentUser(user);
-                  }}
-                >
-                  See Detail
-                </Button>
-              </div>
-              <Modal
-                key={user.id}
-                onClick={() => setOpen(false)}
-                isOpen={isOpen}
-                user={currentUser}
-              />
-            </Card>
-          </motion.div>
-        ))}
+        {isLoading &&
+          [1, 2, 3].map((skeleton) => <SkeletonCard key={skeleton} />)}
+        {!isLoading &&
+          users?.map((user, index) => (
+            <motion.div
+              key={user.id}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.8 + index / 100,
+                delay: 0.5,
+                ease: [0, 0.71, 0.2, 1.01],
+              }}
+            >
+              <Card key={user.id} user={user}>
+                <div className="py-4 border-t flex w-full justify-end">
+                  <Button
+                    className={" text-white font-semibold rounded-[32px]"}
+                    onClick={() => {
+                      setOpen(true);
+                      setCurrentUser(user);
+                    }}
+                  >
+                    See Detail
+                  </Button>
+                </div>
+                <Modal
+                  key={user.id}
+                  onClick={() => setOpen(false)}
+                  isOpen={isOpen}
+                  user={currentUser}
+                />
+              </Card>
+            </motion.div>
+          ))}
       </div>
       <FormInput
         addNewProject={addNewProject}

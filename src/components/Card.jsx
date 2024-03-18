@@ -5,7 +5,7 @@ import Label from "./Label";
 
 export default function Card({ user, children }) {
   return (
-    <main className="p-3 rounded-[22px] shadow-sm bg-white flex flex-col gap-3 h-auto">
+    <main className="p-3 rounded-[22px] shadow-sm bg-white flex flex-col gap-3 h-auto duration-300 hover:scale-[0.99]">
       <div className="flex justify-between items-center">
         <span className="text-slate-400 text-sm">{user?.startDate}</span>
         <span>
