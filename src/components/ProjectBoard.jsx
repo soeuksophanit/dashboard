@@ -1,14 +1,14 @@
 import React from "react";
-import CategoryBar from "./CategoryBar";
+import CategoryBar from "./sub_components/CategoryBar";
 import Card from "./Card";
 import { motion } from "framer-motion";
-import Button from "./Button";
-import BigTitle from "./BigTitle";
-import Modal from "./Modal";
+import Button from "./sub_components/Button";
+import BigTitle from "./sub_components/BigTitle";
+import Modal from "./sub_components/Modal";
 import { useState } from "react";
-import { FormInput } from "./FormInput";
+import { FormInput } from "./sub_components/FormInput";
 import { useEffect } from "react";
-import { SkeletonCard, SkeletonEvent } from "./Skeleton";
+import { SkeletonCard, SkeletonEvent } from "./sub_components/Skeleton";
 
 export default function ProjectBoard({ categories, users, addNewProject }) {
   const [isOpen, setOpen] = useState(false);
@@ -32,18 +32,18 @@ export default function ProjectBoard({ categories, users, addNewProject }) {
       }}
       className="flex flex-col gap-[22px] p-[32px] bg-[#F0F0F5] rounded-tl-[32px] rounded-tr-[32px]"
     >
-      <div className="title flex justify-between items-center">
+      <div className="title flex justify-between items-center max-[930px]:flex-col max-[930px]:gap-6  ">
         <BigTitle>Projects</BigTitle>
         <Button
           onClick={() => setFormOpen(true)}
           className={
-            " uppercase bg-slate-300 text-[#393939] rounded-md font-semibold hover:bg-slate-200 duration-200 hover:text-indigo-400"
+            " uppercase bg-slate-300 text-[#393939] max-[930px]:w-full rounded-md font-semibold hover:bg-slate-200 duration-200 hover:text-indigo-400"
           }
         >
           add new project
         </Button>
       </div>
-      <div className="grid grid-cols-4 gap-[22px]">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(150px,auto))] gap-[22px]">
         {isLoading &&
           [1, 2, 3, 4].map((eventTask) => <SkeletonEvent key={eventTask} />)}
         {!isLoading &&
@@ -95,13 +95,12 @@ export default function ProjectBoard({ categories, users, addNewProject }) {
                     See Detail
                   </Button>
                 </div>
-                <Modal
-                  key={user.id}
-                  onClick={() => setOpen(false)}
-                  isOpen={isOpen}
-                  user={currentUser}
-                />
               </Card>
+              <Modal
+                onClick={() => setOpen(false)}
+                isOpen={isOpen}
+                user={currentUser}
+              />
             </motion.div>
           ))}
       </div>

@@ -1,6 +1,5 @@
 import { types } from "@/data/message";
 import React from "react";
-import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 export function FormInput({ isFormOpen, onClick, addNewProject }) {
@@ -9,6 +8,7 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   isFormOpen && document.getElementById("my_modal_4").showModal();
   const onSubmit = (data) => {
     addNewProject(data);
@@ -48,7 +48,7 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
               </div>
               <input
                 id="position"
-                {...register("position", { required: true })}
+                {...register("position", { required: true, min: 5 })}
                 type="text"
                 placeholder="Type here"
                 className="input input-bordered "

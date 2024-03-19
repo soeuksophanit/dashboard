@@ -3,7 +3,7 @@ import Container from "./components/Container";
 import ProjectBoard from "./components/ProjectBoard";
 import NavBar from "./components/NavBar";
 import { useData } from "./hooks/useData";
-import Messages from "./components/Messages";
+import Messages from "./components/sub_components/Messages";
 import SideBar from "./components/SideBar";
 
 function App() {

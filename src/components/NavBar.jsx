@@ -1,9 +1,9 @@
 import React from "react";
-import BigTitle from "./BigTitle";
+import BigTitle from "./sub_components/BigTitle";
 import bell from "@/assets/bell.svg";
-import Profile from "./Profile";
+import Profile from "./sub_components/Profile";
 import profile from "../assets/Images/pf.jpg";
-import SmallTitle from "./SmallTitle";
+import SmallTitle from "./sub_components/SmallTitle";
 
 const myProfile = {
   img: profile,

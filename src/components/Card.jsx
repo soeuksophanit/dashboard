@@ -1,7 +1,7 @@
 import more from "@/assets/more.svg";
-import SmallTitle from "./SmallTitle";
-import BigTitle from "./BigTitle";
-import Label from "./Label";
+import SmallTitle from "./sub_components/SmallTitle";
+import BigTitle from "./sub_components/BigTitle";
+import Label from "./sub_components/Label";
 
 export default function Card({ user, children }) {
   return (

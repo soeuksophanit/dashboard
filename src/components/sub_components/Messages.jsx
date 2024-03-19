@@ -21,13 +21,13 @@ export default function Messages() {
         <p className="font-semibold">Client Message</p>
         <img src={more} alt="more" className="w-[24px] h-[24px] " />
       </div>
-      <div className="h-[600px]  overflow-y-scroll">
+      <div className="h-[530px]  overflow-y-scroll">
         {isLoading &&
           [1, 2, 3, 4, 5, 6, 7, 8].map((s) => <SkeletonMessage key={s} />)}
         {!isLoading &&
           message.map((p, index) => (
             <motion.main
-              key={p.id}
+              key={index}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -52,7 +52,7 @@ export default function Messages() {
                       onClick={() =>
                         setMessage(
                           message.map((m) =>
-                            m.id === p.id ? { ...m, like: !p.like } : message
+                            m.id === p.id ? { ...m, like: !p.like } : m
                           )
                         )
                       }
