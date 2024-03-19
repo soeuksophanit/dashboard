@@ -4,7 +4,6 @@ import ProjectBoard from "./components/ProjectBoard";
 import NavBar from "./components/NavBar";
 import { useData } from "./hooks/useData";
 import Messages from "./components/Messages";
-import { messages } from "./data/message";
 import SideBar from "./components/SideBar";
 
 function App() {
@@ -15,7 +14,7 @@ function App() {
   return (
     <Container className={classes}>
       <SideBar />
-      <div className="col-[2/3] row-[1/3]">
+      <section className="col-[2/3] row-[1/3]">
         <main className="grid grid-cols-[1fr_auto] grid-rows-[auto_1fr] gap-3">
           <NavBar />
           <ProjectBoard
@@ -23,9 +22,9 @@ function App() {
             users={users}
             addNewProject={addNewProject}
           />
-          <Messages person={messages[0]} />
+          <Messages />
         </main>
-      </div>
+      </section>
     </Container>
   );
 }

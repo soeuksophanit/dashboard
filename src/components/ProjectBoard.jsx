@@ -8,7 +8,7 @@ import Modal from "./Modal";
 import { useState } from "react";
 import { FormInput } from "./FormInput";
 import { useEffect } from "react";
-import { SkeletonCard } from "./Skeleton";
+import { SkeletonCard, SkeletonEvent } from "./Skeleton";
 
 export default function ProjectBoard({ categories, users, addNewProject }) {
   const [isOpen, setOpen] = useState(false);
@@ -18,8 +18,9 @@ export default function ProjectBoard({ categories, users, addNewProject }) {
 
   useEffect(() => {
     setLoading(true);
-    setTimeout(() => setLoading(false), 2000);
+    setTimeout(() => setLoading(false), 1500);
   }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -36,37 +37,40 @@ export default function ProjectBoard({ categories, users, addNewProject }) {
         <Button
           onClick={() => setFormOpen(true)}
           className={
-            " uppercase bg-slate-300 text-[#393939] rounded-md font-semibold"
+            " uppercase bg-slate-300 text-[#393939] rounded-md font-semibold hover:bg-slate-200 duration-200 hover:text-indigo-400"
           }
         >
           add new project
         </Button>
       </div>
       <div className="grid grid-cols-4 gap-[22px]">
-        {categories.map((cat, index) => (
-          <motion.div
-            key={cat.id}
-            initial={{ opacity: 0, x: -20 * index }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{
-              duration: 0.8 + index / 3,
-              delay: 0.5,
-              ease: [0, 0.71, 0.2, 1.01],
-            }}
-          >
-            <CategoryBar
-              className={" "}
-              key={cat.id}
-              cateName={cat.cateName}
-              svgIcon={cat.svgIcon}
-              length={users.length}
-            />
-          </motion.div>
-        ))}
-      </div>
-      <div className="grid grid-cols-3 gap-[22px] h-[397px] overflow-y-scroll rounded-lg">
         {isLoading &&
-          [1, 2, 3].map((skeleton) => <SkeletonCard key={skeleton} />)}
+          [1, 2, 3, 4].map((eventTask) => <SkeletonEvent key={eventTask} />)}
+        {!isLoading &&
+          categories.map((cat, index) => (
+            <motion.div
+              key={cat.id}
+              initial={{ opacity: 0, x: -20 * index }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{
+                duration: 0.8 + index / 3,
+                delay: 0.5,
+                ease: [0, 0.71, 0.2, 1.01],
+              }}
+            >
+              <CategoryBar
+                className={" "}
+                key={cat.id}
+                cateName={cat.cateName}
+                svgIcon={cat.svgIcon}
+                length={users.length}
+              />
+            </motion.div>
+          ))}
+      </div>
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,auto))] gap-[22px] h-[397px] overflow-y-scroll rounded-lg">
+        {isLoading &&
+          [1, 2, 3, 4, 5, 6].map((skeleton) => <SkeletonCard key={skeleton} />)}
         {!isLoading &&
           users?.map((user, index) => (
             <motion.div

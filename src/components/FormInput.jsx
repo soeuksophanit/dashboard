@@ -1,11 +1,9 @@
 import { types } from "@/data/message";
 import React from "react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useToast } from "@/components/ui/use-toast";
 
 export function FormInput({ isFormOpen, onClick, addNewProject }) {
-  const { toast } = useToast();
-
   const {
     register,
     handleSubmit,
@@ -16,10 +14,6 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
     addNewProject(data);
     document.getElementById("my_modal_4").close();
     onClick();
-    toast({
-      title: "Uh oh! Something went wrong.",
-      description: "There was a problem with your request.",
-    });
   };
 
   return (
@@ -39,7 +33,10 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
               <span>Enter New Project</span>
             </h3>
           </div>
-          <form className="mx-auto w-[90%]" onSubmit={handleSubmit(onSubmit)}>
+          <form
+            className="mx-auto w-[90%] flex flex-col gap-3"
+            onSubmit={handleSubmit(onSubmit)}
+          >
             <label className="form-control w-full">
               <div className="label">
                 <span className="label-text font-semibold">Position</span>
@@ -55,6 +52,7 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
                 type="text"
                 placeholder="Type here"
                 className="input input-bordered "
+                name="position"
               />
             </label>
             <label className="form-control w-full">
@@ -95,7 +93,7 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
             <label className="form-control">
               <div className="flex justify-between">
                 <div>
-                  <div className="label flex flex-col items-start">
+                  <div className="label flex gap-2">
                     <span className="label-text font-medium">Start Date</span>
                     {errors.startDate && (
                       <span className="text-red-500 text-sm">
@@ -106,11 +104,11 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
                   <input
                     {...register("startDate", { required: true })}
                     type="date"
-                    className="border border-[#393939] rounded-md"
+                    className="border border-[#393939] rounded-md py-2 px-4"
                   />
                 </div>
                 <div>
-                  <div className="label flex flex-col items-start">
+                  <div className="label flex gap-2">
                     <span className="label-text font-medium">End Date</span>
                     {errors.endDate && (
                       <span className="text-red-500 text-sm">
@@ -121,7 +119,7 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
                   <input
                     {...register("endDate", { required: true })}
                     type="date"
-                    className="border border-[#393939] rounded-md"
+                    className="border border-[#393939] rounded-md py-2 px-4"
                   />
                 </div>
               </div>
@@ -143,13 +141,10 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
               ></textarea>
             </label>
 
-            <button type="submit" className={" btn btn-outline mt-2"}>
+            <button type="submit" className={" btn btn-outline mt-2 self-end"}>
               Submit
             </button>
           </form>
-          <p className="text-center mt-6 text-sm font-semibold  rounded-[22px] cursor-pointer">
-            Click on ✕ button to close
-          </p>
         </div>
       </dialog>
     </>

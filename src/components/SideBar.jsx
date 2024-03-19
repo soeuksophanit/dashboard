@@ -7,7 +7,7 @@ export default function SideBar() {
   const classes =
     "w-6 h-6 cursor-pointer hover:bg-gray-200 box-content p-3 transition-all duration-300 rounded-full ";
   return (
-    <div className="row-[2/3] col-[1/2] mt-[64px]">
+    <main className="row-[2/3] col-[1/2] mt-[64px]">
       <aside className="flex flex-col gap-4 items-center">
         {side_bars.map((sidebar, index) => (
           <svg
@@ -19,13 +19,15 @@ export default function SideBar() {
             strokeWidth={2}
             stroke="currentColor"
             className={
-              indexActive == index ? classes + " bg-gray-200" : classes
+              indexActive == index
+                ? classes + " bg-gray-200 fill-[#393939] stroke-slate-200"
+                : classes
             }
           >
             <path strokeLinecap="round" strokeLinejoin="round" d={sidebar.d} />
           </svg>
         ))}
       </aside>
-    </div>
+    </main>
   );
 }
