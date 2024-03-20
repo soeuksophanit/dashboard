@@ -1,13 +1,13 @@
 export const getBgColor = (cateName) => {
   const cate = cateName?.toLowerCase();
   return cate == "finish project"
-    ? "bg-primarypurple  text-white"
+    ? "bg-primarypurple  text-white box1"
     : cate == "upcoming"
-    ? "bg-secondarypurple text-white"
+    ? "bg-secondarypurple text-white box2"
     : cate == "total project"
-    ? "bg-primarypink text-white"
+    ? "bg-primarypink text-white box3"
     : cate == "in progress"
-    ? "bg-primaryred text-white"
+    ? "bg-primaryred text-white box4"
     : "";
 };
 
@@ -15,7 +15,7 @@ export default function CategoryBar({ className, svgIcon, length, cateName }) {
   return (
     <main
       className={
-        "py-1 px-2 flex gap-2 items-center rounded-md " +
+        "py-1 px-2 flex gap-2 items-center rounded-md cursor-pointer hover:scale-[1.05] duration-300 " +
         getBgColor(cateName) +
         className
       }

@@ -4,6 +4,7 @@
 
 *::-webkit-scrollbar {
   display: none;
+  scroll-behavior: smooth;
 }
 
 @layer base {
@@ -76,5 +77,18 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  .box1 img {
+    @apply bg-box1;
+  }
+  .box2 img {
+    @apply bg-box2;
+  }
+  .box3 img {
+    @apply bg-box3;
+  }
+  .box4 img {
+    @apply bg-box4;
   }
 }

@@ -13,7 +13,7 @@ export default function Label({ className, tagName }) {
   return (
     <span
       className={
-        "text-[12px] font-medium inline-block py-1 px-2 rounded-[32px] " +
+        "text-[12px] cursor-pointer font-medium inline-block py-1 px-2 rounded-[32px] " +
         getTagName(tagName) +
         className
       }

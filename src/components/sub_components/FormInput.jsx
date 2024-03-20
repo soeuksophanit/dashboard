@@ -24,7 +24,10 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
         <div className="modal-box flex flex-col">
           <form method="dialog">
             <button
-              onClick={onClick}
+              onClick={() => {
+                onClick();
+                reset();
+              }}
               className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
             >
               ✕
@@ -53,7 +56,11 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
                 {...register("position", { required: true, min: 5 })}
                 type="text"
                 placeholder="Type here"
-                className="input input-bordered "
+                className={
+                  errors.position
+                    ? "input  !ring-2 focus:outline-none !ring-red-500 border-none "
+                    : "input input-bordered "
+                }
                 name="position"
               />
             </label>
@@ -70,7 +77,11 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
                 {...register("company", { required: true })}
                 type="text"
                 placeholder="Type here"
-                className="input input-bordered "
+                className={
+                  errors.company
+                    ? "input  !ring-2 !ring-red-500 focus:outline-none  border-none "
+                    : "input input-bordered "
+                }
               />
             </label>
             <label className="form-control w-full">
@@ -93,8 +104,8 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
             </label>
 
             <label className="form-control">
-              <div className="flex justify-between">
-                <div>
+              <div className="flex justify-between gap-6">
+                <div className="flex-1">
                   <div className="label flex gap-2">
                     <span className="label-text font-medium">Start Date</span>
                     {errors.startDate && (
@@ -106,10 +117,14 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
                   <input
                     {...register("startDate", { required: true })}
                     type="date"
-                    className="border border-[#393939] rounded-md py-2 px-4"
+                    className={
+                      errors.startDate
+                        ? "input  !ring-2 !ring-red-500 focus:outline-none border-none w-full"
+                        : "input input-bordered w-full"
+                    }
                   />
                 </div>
-                <div>
+                <div className="flex-1">
                   <div className="label flex gap-2">
                     <span className="label-text font-medium">End Date</span>
                     {errors.endDate && (
@@ -121,7 +136,11 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
                   <input
                     {...register("endDate", { required: true })}
                     type="date"
-                    className="border border-[#393939] rounded-md py-2 px-4"
+                    className={
+                      errors.endDate
+                        ? "input  !ring-2 !ring-red-500 border-none focus:outline-none w-full"
+                        : "input input-bordered  w-full"
+                    }
                   />
                 </div>
               </div>
@@ -138,7 +157,11 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
               </div>
               <textarea
                 {...register("description", { required: true })}
-                className="textarea textarea-bordered h-24"
+                className={
+                  errors.description
+                    ? "textarea textarea-bordered h-24 !ring-2 !ring-red-500 border-none focus:outline-none"
+                    : "textarea textarea-bordered h-24"
+                }
                 placeholder="Description"
               ></textarea>
             </label>
