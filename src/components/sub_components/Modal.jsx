@@ -1,8 +1,11 @@
 import React from "react";
 import Label, { getTagName } from "./Label";
+import { useEffect } from "react";
 
 export default function Modal({ isOpen, user, onClick }) {
-  isOpen && document.getElementById("my_modal_3").showModal();
+  useEffect(() => {
+    isOpen && document.getElementById("my_modal_3").showModal();
+  });
   return (
     <>
       <dialog id="my_modal_3" className="modal !text-[#393939]">
@@ -37,7 +40,7 @@ export default function Modal({ isOpen, user, onClick }) {
               <span className="font-semibold !text-[#393939]">
                 Decription :
               </span>
-              <span>{user?.detail}</span>
+              <span> {user?.detail}</span>
             </p>
           </div>
         </div>

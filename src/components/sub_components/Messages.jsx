@@ -12,11 +12,11 @@ export default function Messages() {
   const { message, setMessage } = useMessage();
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 1500);
+    setTimeout(() => setLoading(false), 1000);
   }, []);
 
   return (
-    <div>
+    <main>
       <div className="flex items-center justify-between py-3">
         <p className="font-semibold">Client Message</p>
         <img src={more} alt="more" className="w-[24px] h-[24px] " />
@@ -74,7 +74,9 @@ export default function Messages() {
                       />
                     </svg>
                   </section>
-                  <p className="text-slate-500 text-[14px]">{p.message}</p>
+                  <p className="text-slate-500 text-[14px] line-clamp-2">
+                    {p.message}
+                  </p>
                   <p className="self-end text-slate-500 text-[14px]">
                     {p.date}
                   </p>
@@ -83,6 +85,6 @@ export default function Messages() {
             </motion.main>
           ))}
       </div>
-    </div>
+    </main>
   );
 }

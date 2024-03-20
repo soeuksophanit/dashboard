@@ -16,12 +16,13 @@ module.exports = {
       screens: {
         "2xl": "1400px",
       },
-      colors: {
-        "light-red": "#A587FA",
-      },
     },
     extend: {
       colors: {
+        primarypurple: "#A587FA",
+        secondarypurple: "#BE84FA",
+        primarypink: "#F06EB4",
+        primaryred: "#FA6E82 ",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

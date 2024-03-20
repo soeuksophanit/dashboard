@@ -18,7 +18,7 @@ export default function Card({ user, children }) {
       </div>
       <div>
         <SmallTitle>{user?.company}</SmallTitle>
-        <BigTitle>{user?.name}</BigTitle>
+        <BigTitle className={" line-clamp-2"}>{user?.name}</BigTitle>
       </div>
       <div>
         <Label tagName={user?.type} className={" font-medium"} />

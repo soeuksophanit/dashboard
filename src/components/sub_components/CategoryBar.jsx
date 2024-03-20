@@ -1,13 +1,13 @@
 export const getBgColor = (cateName) => {
   const cate = cateName?.toLowerCase();
   return cate == "finish project"
-    ? "bg-[#A587FA] text-white"
+    ? "bg-primarypurple  text-white"
     : cate == "upcoming"
-    ? "bg-[#BE84FA] text-white"
+    ? "bg-secondarypurple text-white"
     : cate == "total project"
-    ? "bg-[#F06EB4] text-white"
+    ? "bg-primarypink text-white"
     : cate == "in progress"
-    ? "bg-[#FA6E82] text-white"
+    ? "bg-primaryred text-white"
     : "";
 };
 

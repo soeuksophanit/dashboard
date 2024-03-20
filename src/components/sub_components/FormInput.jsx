@@ -6,6 +6,7 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -14,6 +15,7 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
     addNewProject(data);
     document.getElementById("my_modal_4").close();
     onClick();
+    reset();
   };
 
   return (

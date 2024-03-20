@@ -7,7 +7,7 @@ export default function SideBar() {
   const classes =
     "w-6 h-6 cursor-pointer hover:bg-gray-200 box-content p-3 transition-all duration-300 rounded-full ";
   return (
-    <main className="row-[2/3] col-[1/2] mt-[64px]">
+    <main className="row-[2/3] col-[1/2] mt-[74px]">
       <aside className="flex flex-col gap-4 items-center">
         {side_bars.map((sidebar, index) => (
           <svg

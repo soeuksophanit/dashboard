@@ -18,7 +18,7 @@ export default function ProjectBoard({ categories, users, addNewProject }) {
 
   useEffect(() => {
     setLoading(true);
-    setTimeout(() => setLoading(false), 1500);
+    setTimeout(() => setLoading(false), 1000);
   }, []);
 
   return (
@@ -84,7 +84,7 @@ export default function ProjectBoard({ categories, users, addNewProject }) {
               }}
             >
               <Card key={user.id} user={user}>
-                <div className="py-4 border-t flex w-full justify-end">
+                <section className="py-4 border-t flex w-full justify-end">
                   <Button
                     className={" text-white font-semibold rounded-[32px]"}
                     onClick={() => {
@@ -94,7 +94,7 @@ export default function ProjectBoard({ categories, users, addNewProject }) {
                   >
                     See Detail
                   </Button>
-                </div>
+                </section>
               </Card>
               <Modal
                 onClick={() => setOpen(false)}
