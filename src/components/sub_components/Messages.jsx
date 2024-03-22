@@ -1,6 +1,5 @@
 import React from "react";
 import SmallTitle from "./SmallTitle";
-import more from "@/assets/more.svg";
 import { useState } from "react";
 import { useEffect } from "react";
 import { SkeletonMessage } from "./Skeleton";
@@ -62,20 +61,20 @@ export default function Messages() {
                       {p.name}
                     </SmallTitle>
                     <svg
-                      onClick={() =>
+                      onClick={() => {
                         setMessage(
                           message.map((m) =>
                             m.id === p.id ? { ...m, like: !p.like } : m
                           )
-                        )
-                      }
+                        );
+                      }}
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
                       className={
-                        p.like === false
+                        !p.like
                           ? "w-[16px] h-[16px] cursor-pointer"
                           : "w-[16px] h-[16px] cursor-pointer fill-[#393939]"
                       }

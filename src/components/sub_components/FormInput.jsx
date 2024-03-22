@@ -122,11 +122,6 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
                         Date is require
                       </span>
                     )}
-                    {!isDateValidate && (
-                      <span className="text-red-500 text-sm">
-                        Invalida date
-                      </span>
-                    )}
                   </div>
                   <input
                     {...register("startDate", {
@@ -135,7 +130,7 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
                     })}
                     type="date"
                     className={
-                      errors.startDate || !isDateValidate
+                      errors.startDate
                         ? "input  !ring-2 !ring-red-500 focus:outline-none border-none w-full"
                         : "input input-bordered w-full"
                     }
@@ -151,7 +146,7 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
                     )}
                     {!isDateValidate && (
                       <span className="text-red-500 text-sm">
-                        Invalida date
+                        End &lt; Start Date
                       </span>
                     )}
                   </div>
@@ -166,11 +161,6 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
                   />
                 </div>
               </div>
-              {!isDateValidate && (
-                <span className="capitalize text-center mt-2 text-[10px] text-red-500">
-                  Start date is greater than End date
-                </span>
-              )}
             </label>
 
             <label className="form-control">
