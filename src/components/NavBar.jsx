@@ -16,8 +16,8 @@ export default function NavBar() {
       <nav className="flex justify-between items-center my-6">
         <BigTitle className={" text-[32px]"}>Portfolio</BigTitle>
         <main className="flex gap-4 items-center">
-          <div className="relative after:absolute after:size-1 after:bg-red-500 after:rounded-full after:top-0 after:right-0">
-            <img src={bell} alt="bell" className="w-[24px] h-24px " />
+          <div className="relative after:absolute after:size-2 after:bg-red-500 after:rounded-full after:top-[2px] after:right-[6px]">
+            <img src={bell} alt="bell" className="w-[32px] h-[32px] " />
           </div>
           <Profile className={" "} client={myProfile} />
           <SmallTitle className={" font-semibold"}>{myProfile.name}</SmallTitle>

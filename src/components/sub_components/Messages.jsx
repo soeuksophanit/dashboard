@@ -17,9 +17,22 @@ export default function Messages() {
 
   return (
     <main>
-      <div className="flex items-center justify-between py-3">
+      <div className="flex items-center justify-between py-3 border-b">
         <p className="font-semibold">Client Message</p>
-        <img src={more} alt="more" className="w-[24px] h-[24px] " />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+          />
+        </svg>
       </div>
       <div className="h-[530px]  overflow-y-scroll">
         {isLoading &&
@@ -35,7 +48,7 @@ export default function Messages() {
                 delay: 0.5,
                 ease: [0, 0.71, 0.2, 1.01],
               }}
-              className="grid grid-cols-[auto_1fr] gap-3 items-center w-[350px] border-b py-3"
+              className="grid grid-cols-[auto_1fr] items-center w-[350px] border-b py-3"
             >
               <aside className="grid grid-cols-[auto_1fr] gap-3">
                 <img

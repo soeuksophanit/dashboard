@@ -15,7 +15,7 @@ function App() {
     <Container className={classes}>
       <SideBar />
       <section className="col-[2/3] row-[1/3]">
-        <main className="grid grid-cols-[1fr_auto] grid-rows-[auto_1fr] gap-3">
+        <main className="grid grid-cols-[1fr_auto] grid-rows-[auto_1fr] gap-6">
           <NavBar />
           <ProjectBoard
             categories={categories}
