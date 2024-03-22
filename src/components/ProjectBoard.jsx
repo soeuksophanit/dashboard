@@ -68,7 +68,7 @@ export default function ProjectBoard({ categories, users, addNewProject }) {
             </motion.div>
           ))}
       </div>
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,auto))] gap-[22px] h-[397px] overflow-y-scroll rounded-lg">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,auto))] gap-[22px] h-[402px] overflow-y-scroll rounded-lg">
         {isLoading &&
           [1, 2, 3, 4, 5, 6].map((skeleton) => <SkeletonCard key={skeleton} />)}
         {!isLoading &&

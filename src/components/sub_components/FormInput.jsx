@@ -1,8 +1,12 @@
 import { types } from "@/data/message";
+import { compareDate } from "@/data/validate";
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 export function FormInput({ isFormOpen, onClick, addNewProject }) {
+  const [isDateValidate, setDateValidate] = useState(true);
   const {
     register,
     handleSubmit,
@@ -12,10 +16,15 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
 
   isFormOpen && document.getElementById("my_modal_4").showModal();
   const onSubmit = (data) => {
+    if (!compareDate(data.startDate, data.endDate)) {
+      setDateValidate(false);
+      return;
+    }
     addNewProject(data);
     document.getElementById("my_modal_4").close();
     onClick();
     reset();
+    setDateValidate(true);
   };
 
   return (
@@ -113,12 +122,20 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
                         Date is require
                       </span>
                     )}
+                    {!isDateValidate && (
+                      <span className="text-red-500 text-sm">
+                        Invalida date
+                      </span>
+                    )}
                   </div>
                   <input
-                    {...register("startDate", { required: true })}
+                    {...register("startDate", {
+                      required: true,
+                      validate: isDateValidate ? true : "Date is not correct",
+                    })}
                     type="date"
                     className={
-                      errors.startDate
+                      errors.startDate || !isDateValidate
                         ? "input  !ring-2 !ring-red-500 focus:outline-none border-none w-full"
                         : "input input-bordered w-full"
                     }
@@ -132,18 +149,28 @@ export function FormInput({ isFormOpen, onClick, addNewProject }) {
                         Date is require
                       </span>
                     )}
+                    {!isDateValidate && (
+                      <span className="text-red-500 text-sm">
+                        Invalida date
+                      </span>
+                    )}
                   </div>
                   <input
                     {...register("endDate", { required: true })}
                     type="date"
                     className={
-                      errors.endDate
+                      errors.endDate || !isDateValidate
                         ? "input  !ring-2 !ring-red-500 border-none focus:outline-none w-full"
                         : "input input-bordered  w-full"
                     }
                   />
                 </div>
               </div>
+              {!isDateValidate && (
+                <span className="capitalize text-center mt-2 text-[10px] text-red-500">
+                  Start date is greater than End date
+                </span>
+              )}
             </label>
 
             <label className="form-control">

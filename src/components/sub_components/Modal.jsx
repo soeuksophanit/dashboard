@@ -20,7 +20,7 @@ export default function Modal({ isOpen, user, onClick }) {
           </form>
           <div className="flex flex-col gap-1 items-start text-[#393939]">
             <h3 className="font-bold text-lg">
-              <span>{user?.company} Company</span>
+              <span className="capitalize">{user?.company} Company</span>
             </h3>
             <p className="flex items-center gap-3">
               <span className="font-semibold !text-[#393939]">Position : </span>

@@ -21,7 +21,7 @@ export default function CategoryBar({ className, svgIcon, length, cateName }) {
       }
     >
       <img
-        className="w-[28px] h-[28px] object-cover p-1 bg-white rounded-md"
+        className="w-[14px] h-[14px] object-cover p-2 box-content bg-white rounded-md"
         src={svgIcon}
       />
 
